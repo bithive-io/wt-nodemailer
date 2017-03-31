@@ -5,6 +5,8 @@ app.post('/mailer/echo', function (req, res) {
   res.status(200).send(req.body.name);
 });
 
+app.use(require('body-parser').json());
+
 // [POST] hire
 
 app.post('/mailer/hire', function (req, res) {
