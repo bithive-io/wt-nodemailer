@@ -6,9 +6,9 @@ app.use(require('body-parser').json());
 
 // POST [hire]
 app.post('/mailer/hire', function (req, res) {
-    if((!req.params.SG_KEY) ||
-       (!req.params.SG_TO)  ||
-       (!req.params.SG_FROM))
+    if((!ctx.data.SG_KEY) ||
+       (!ctx.data.SG_TO)  ||
+       (!ctx.data.SG_FROM))
           res.json({ status: 500 });
 
     var content = "- ORGANIZATION:" + req.params.org + "\n" + "- MESSAGE: \n" + req.params.message;
@@ -30,9 +30,9 @@ app.post('/mailer/hire', function (req, res) {
 
 // POST [hire]
 app.post('/mailer/join', function (req, res) {
-    if((!req.params.SG_KEY) ||
-       (!req.params.SG_TO)  ||
-       (!req.params.SG_FROM))
+    if((!ctx.data.SG_KEY) ||
+       (!ctx.data.SG_TO)  ||
+       (!ctx.data.SG_FROM))
           res.json({ status: 500 });
 
     var content = "- NAME:" + req.params.name + "\n" +
