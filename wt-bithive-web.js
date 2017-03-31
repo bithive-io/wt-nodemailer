@@ -1,10 +1,9 @@
 var app = new(require('express'));
 var Webtask = require('webtask-tools');
 
-app.use(require('body-parser').json());
+app.use(require('body-parser').urlencoded({extended: true});
 
 app.post('/mailer/echo', function (req, res) {
-  res.setHeader('Content-Type', 'application/json');
   res.status(200).send(req.body.name);
 });
 
