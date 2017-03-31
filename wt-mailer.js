@@ -59,3 +59,6 @@ app.post('/mailer/join', function (req, res) {
           return res.json({ status: 200 });
     });
 })
+
+
+module.exports = Webtask.fromExpress(app);
