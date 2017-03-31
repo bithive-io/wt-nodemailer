@@ -11,15 +11,15 @@ app.post('/mailer/test', function (req, res) {
 });
 
 app.post('/mailer/echo', function (req, res) {
-  res.status(200).send(req.body);
+  res.status(200).send(req.params);
 });
 
 // [POST] hire
 
 app.post('/mailer/hire', function (req, res) {
 
-  var subject = 'New HIRE Message from ' + req.body.name + ' <' + req.body.email +'>';
-  var content = "- ORGANIZATION:" + req.body.org + "\n" + "- MESSAGE: \n" + req.body.message;
+  var subject = 'New HIRE Message from ' + req.params.name + ' <' + req.params.email +'>';
+  var content = '- ORGANIZATION: ' + req.params.org + '\n' + '- MESSAGE: \n' + req.params.message;
 
   var Sendgrid = require('sendgrid')(req.webtaskContext.secrets.SG_KEY);
 
