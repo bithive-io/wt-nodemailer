@@ -14,10 +14,12 @@ I just integrated in the Contact form of my own company's website: [bithive](htt
 
 ```bash
 wt create https://raw.githubusercontent.com/bithive-io/wt-sendgrid/master/wt-mailer.js \
-        --name wt-sendgrid \
+        --name wt-bithive-web \
+        --no-parse \
+        --no-merge \
         --secret SG_KEY=${Sendgrid API KEY} \
         --secret SG_TO=${To email address} \
-        --secret SG_FROM=${From email address}
+        --secret SG_FROM=noreply@contact.bithive.io
 ```
 
 
