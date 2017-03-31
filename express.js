@@ -14,7 +14,7 @@ app.post('/mailer/hire', function (req, res) {
 
     var content = "- ORGANIZATION:" + req.params.org + "\n" + "- MESSAGE: \n" + req.params.message;
 
-    var Sendgrid = require('sendgrid')(req.params.SG_KEY);
+    var Sendgrid = require('sendgrid')(req.webtaskContext.data.SG_KEY);
 
     Sendgrid.send({
         to: req.webtaskContext.data.SG_TO,
@@ -48,7 +48,7 @@ app.post('/mailer/join', function (req, res) {
                   "- GITHUB: " + req.params.github + "\n" +
                   "- MESSAGE: \n" + req.params.message;
 
-    var Sendgrid = require('sendgrid')(req.param.SG_KEY);
+    var Sendgrid = require('sendgrid')(req.webtaskContext.data.SG_KEY);
 
     Sendgrid.send({
         to: req.webtaskContext.data.SG_TO,
