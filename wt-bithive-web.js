@@ -2,7 +2,7 @@ var app = new(require('express'));
 var Webtask = require('webtask-tools');
 
 app.post('/mailer/echo', function (req, res) {
-  res.status(200).send(req.webtaskContext.body);
+  res.status(200).send(req.webtaskContext.data.name);
 });
 
 // [POST] hire
