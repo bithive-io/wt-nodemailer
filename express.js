@@ -4,7 +4,8 @@ var app = Express();
 
 app.use(require('body-parser').json());
 
-// POST [hire]
+// [POST] hire
+
 app.post('/mailer/hire', function (req, res) {
     if((!req.webtaskContext.data.SG_KEY) ||
        (!req.webtaskContext.data.SG_TO)  ||
@@ -28,7 +29,9 @@ app.post('/mailer/hire', function (req, res) {
     });
 });
 
-// POST [hire]
+
+// [POST] join
+
 app.post('/mailer/join', function (req, res) {
     if((!req.webtaskContext.data.SG_KEY) ||
        (!req.webtaskContext.data.SG_TO)  ||
