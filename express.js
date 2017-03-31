@@ -1,9 +1,14 @@
 var app = new(require('express'));
 var Webtask = require('webtask-tools');
 
-//app.use(require('body-parser').json());
-var bodyParser = require('body-parser')
-app.use(express.bodyParser());
+app.use(require('body-parser').json());
+
+
+// POST testing...
+
+app.post('/mailer/test', function (req, res) {
+  res.status(200).send(req.webtaskContext.data);
+});
 
 // [POST] hire
 
