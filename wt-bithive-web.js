@@ -2,15 +2,15 @@ var app = new(require('express'));
 var Webtask = require('webtask-tools');
 
 app.post('/mailer/echo', function (req, res) {
-  res.status(200).send(req.webtaskContext.data.body);
+  res.status(200).send(req.webtaskContext.data.name);
 });
 
 // [POST] hire
 
 app.post('/mailer/hire', function (req, res) {
 
-  var subject = 'New HIRE Message from ' + req.webtaskContext.body.name + ' <' + req.webtaskContext.body.email +'>';
-  var content = '- ORGANIZATION: ' + req.webtaskContext.body.org + '\n' + '- MESSAGE: \n' + req.webtaskContext.body.message;
+  var subject = 'New HIRE Message from ' + req.webtaskContext.data.name + ' <' + req.webtaskContext.data.email +'>';
+  var content = '- ORGANIZATION: ' + req.webtaskContext.data.org + '\n' + '- MESSAGE: \n' + req.webtaskContext.data.message;
 
   var Sendgrid = require('sendgrid')(req.webtaskContext.secrets.SG_KEY);
 
@@ -32,16 +32,16 @@ app.post('/mailer/hire', function (req, res) {
 
 app.post('/mailer/join', function (req, res) {
 
-  var subject = 'New JOIN Message from ' + req.webtaskContext.body.name + ' <' + req.webtaskContext.body.email +'>';
-  var content = "- NAME:" + req.webtaskContext.body.name + "\n" +
-  "- EMAIL: " + req.webtaskContext.body.email + "\n" +
-  "- AVAILABILITY (hs): " + req.webtaskContext.body.availability + "\n" +
-  "- LOCATION: " + req.webtaskContext.body.location + "\n" +
-  "- SKILL: " + req.webtaskContext.body.skill + "\n" +
-  "- WEBSITE: " + req.webtaskContext.body.website + "\n" +
-  "- LINKEDIN: " + req.webtaskContext.body.linkedin + "\n" +
-  "- GITHUB: " + req.webtaskContext.body.github + "\n" +
-  "- MESSAGE: \n" + req.webtaskContext.body.message;
+  var subject = 'New JOIN Message from ' + req.webtaskContext.data.name + ' <' + req.webtaskContext.data.email +'>';
+  var content = "- NAME:" + req.webtaskContext.data.name + "\n" +
+  "- EMAIL: " + req.webtaskContext.data.email + "\n" +
+  "- AVAILABILITY (hs): " + req.webtaskContext.data.availability + "\n" +
+  "- LOCATION: " + req.webtaskContext.data.location + "\n" +
+  "- SKILL: " + req.webtaskContext.data.skill + "\n" +
+  "- WEBSITE: " + req.webtaskContext.data.website + "\n" +
+  "- LINKEDIN: " + req.webtaskContext.data.linkedin + "\n" +
+  "- GITHUB: " + req.webtaskContext.data.github + "\n" +
+  "- MESSAGE: \n" + req.webtaskContext.data.message;
 
   var Sendgrid = require('sendgrid')(req.webtaskContext.secrets.SG_KEY);
 
