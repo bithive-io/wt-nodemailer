@@ -1,11 +1,11 @@
 var app = new(require('express'));
 var Webtask = require('webtask-tools');
 
-app.post('/mailer/echo', function (req, res) {
-  res.status(200).send(req.body.name);
-});
-
 app.use(require('body-parser').json());
+
+app.post('/mailer/echo', function (req, res) {
+  res.status(200).send(req.body);
+});
 
 // [POST] hire
 
