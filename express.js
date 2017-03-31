@@ -7,7 +7,7 @@ app.use(require('body-parser').json());
 // POST testing...
 
 app.post('/mailer/test', function (req, res) {
-  res.status(200).send(req.webtaskContext.data);
+  res.status(200).send(req.webtaskContext.secrets);
 });
 
 app.post('/mailer/echo', function (req, res) {
@@ -20,11 +20,11 @@ app.post('/mailer/hire', function (req, res) {
 
     var content = "- ORGANIZATION:" + req.body.org + "\n" + "- MESSAGE: \n" + req.body.message;
 
-    var Sendgrid = require('sendgrid')(req.webtaskContext.data.SG_KEY);
+    var Sendgrid = require('sendgrid')(req.webtaskContext.secrets.SG_KEY);
 
     Sendgrid.send({
-        to: req.webtaskContext.data.SG_TO,
-        from: req.webtaskContext.data.SG_FROM,
+        to: req.webtaskContext.secrets.SG_TO,
+        from: req.webtaskContext.secrets.SG_FROM,
         subject: 'New HIRE Message from ' + req.body.name + ' <' + req.body.email +'>',
         text: content
     }, function(err, json) {
@@ -50,11 +50,11 @@ app.post('/mailer/join', function (req, res) {
                   "- GITHUB: " + req.params.github + "\n" +
                   "- MESSAGE: \n" + req.params.message;
 
-    var Sendgrid = require('sendgrid')(req.webtaskContext.data.SG_KEY);
+    var Sendgrid = require('sendgrid')(req.webtaskContext.secrets.SG_KEY);
 
     Sendgrid.send({
-        to: req.webtaskContext.data.SG_TO,
-        from: req.webtaskContext.data.SG_FROM
+        to: req.webtaskContext.secrets.SG_TO,
+        from: req.webtaskContext.secrets.SG_FROM
         subject: 'New JOIN Message from ' + req.params.name + ' <' + req.params.email +'>',
         text: content
     }, function(err, json) {
