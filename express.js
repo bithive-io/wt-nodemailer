@@ -2,7 +2,9 @@ var Express = require('express');
 var Webtask = require('webtask-tools');
 var app = Express();
 
-app.use(require('body-parser').json());
+//app.use(require('body-parser').json());
+var bodyParser = require('body-parser')
+app.use(express.bodyParser());
 
 // [POST] hire
 
