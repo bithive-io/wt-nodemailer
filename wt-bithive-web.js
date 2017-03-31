@@ -4,7 +4,8 @@ var Webtask = require('webtask-tools');
 app.use(require('body-parser').json());
 
 app.post('/mailer/echo', function (req, res) {
-  res.status(200).send(req.body.name);
+  res.setHeader('Content-Type', 'application/json');
+  res.status(200).json({ name : req.webtaskContext.data.name}));
 });
 
 // [POST] hire
