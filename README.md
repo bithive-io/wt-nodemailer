@@ -13,7 +13,7 @@ I just integrated in the Contact form of my own company's website: [bithive](htt
 ### Usage
 
 ```bash
-wt create https://raw.githubusercontent.com/bithive-io/wt-sendgrid/master/sendmail.js \
+wt create https://raw.githubusercontent.com/bithive-io/wt-sendgrid/master/wt-mailer.js \
         --name wt-sendgrid \
         --secret SG_KEY=${Sendgrid API KEY} \
         --secret SG_TO=${To email address} \

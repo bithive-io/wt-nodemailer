@@ -42,7 +42,7 @@ app.post('/mailer/join', function (req, res) {
                   "- SKILL: " + req.params.skill + "\n" +
                   "- WEBSITE: " + req.params.website + "\n" +
                   "- LINKEDIN: " + req.params.linkedin + "\n" +
-                  "- GITHUB: " + req.params.gihub + "\n" +
+                  "- GITHUB: " + req.params.github + "\n" +
                   "- MESSAGE: \n" + req.params.message;
 
     var Sendgrid = require('sendgrid')(req.param.SG_KEY);
