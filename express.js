@@ -9,10 +9,10 @@ app.use(express.bodyParser());
 // [POST] hire
 
 app.post('/mailer/hire', function (req, res) {
-    if((!req.webtaskContext.data.SG_KEY) ||
-       (!req.webtaskContext.data.SG_TO)  ||
-       (!req.webtaskContext.data.SG_FROM))
-         res.status(500).send("error");
+    // if((!req.webtaskContext.data.SG_KEY) ||
+    //    (!req.webtaskContext.data.SG_TO)  ||
+    //    (!req.webtaskContext.data.SG_FROM))
+    //      res.status(500).send("error");
 
     var content = "- ORGANIZATION:" + req.body.org + "\n" + "- MESSAGE: \n" + req.body.message;
 
