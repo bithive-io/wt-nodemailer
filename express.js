@@ -9,7 +9,7 @@ app.post('/mailer/hire', function (req, res) {
     if((!req.webtaskContext.data.SG_KEY) ||
        (!req.webtaskContext.data.SG_TO)  ||
        (!req.webtaskContext.data.SG_FROM))
-          res.json({ status: 500 });
+         res.status(500).send("error");
 
     var content = "- ORGANIZATION:" + req.params.org + "\n" + "- MESSAGE: \n" + req.params.message;
 
@@ -22,9 +22,9 @@ app.post('/mailer/hire', function (req, res) {
         text: content
     }, function(err, json) {
         if(err)
-          return res.json({ status: 500 });
+          res.status(500).send("error");
         else
-          return res.json({ status: 200 });
+          res.status(200).send("ok");
     });
 });
 
@@ -33,7 +33,7 @@ app.post('/mailer/join', function (req, res) {
     if((!req.webtaskContext.data.SG_KEY) ||
        (!req.webtaskContext.data.SG_TO)  ||
        (!req.webtaskContext.data.SG_FROM))
-          res.json({ status: 500 });
+         res.status(500).send("error");
 
     var content = "- NAME:" + req.params.name + "\n" +
                   "- EMAIL: " + req.params.email + "\n" +
@@ -54,9 +54,9 @@ app.post('/mailer/join', function (req, res) {
         text: content
     }, function(err, json) {
         if(err)
-          return res.json({ status: 500 });
+          res.status(500).send("error");
         else
-          return res.json({ status: 200 });
+          res.status(200).send("ok");;
     });
 })
 
