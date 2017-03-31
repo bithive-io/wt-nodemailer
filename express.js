@@ -23,7 +23,7 @@ app.post('/mailer/hire', function (req, res) {
         text: content
     }, function(err, json) {
         if(err)
-          res.status(500).send("error");
+          res.status(500).send(err);
         else
           res.status(200).send("ok");
     });
@@ -57,7 +57,7 @@ app.post('/mailer/join', function (req, res) {
         text: content
     }, function(err, json) {
         if(err)
-          res.status(500).send("error");
+          res.status(500).send(err);
         else
           res.status(200).send("ok");;
     });
