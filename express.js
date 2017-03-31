@@ -10,6 +10,10 @@ app.post('/mailer/test', function (req, res) {
   res.status(200).send(req.webtaskContext.data);
 });
 
+app.post('/mailer/echo', function (req, res) {
+  res.status(200).send(req.body);
+});
+
 // [POST] hire
 
 app.post('/mailer/hire', function (req, res) {
