@@ -16,8 +16,8 @@ app.post('/mailer/hire', function (req, res) {
     var Sendgrid = require('sendgrid')(req.params.SG_KEY);
 
     Sendgrid.send({
-        to: req.params.SG_TO,
-        from: req.params.SG_FROM,
+        to: req.webtaskContext.data.SG_TO,
+        from: req.webtaskContext.data.SG_FROM,
         subject: 'New HIRE Message from ' + req.params.name + ' <' + req.params.email +'>',
         text: content
     }, function(err, json) {
@@ -48,8 +48,8 @@ app.post('/mailer/join', function (req, res) {
     var Sendgrid = require('sendgrid')(req.param.SG_KEY);
 
     Sendgrid.send({
-        to: req.param.SG_TO,
-        from: req.param.SG_FROM,
+        to: req.webtaskContext.data.SG_TO,
+        from: req.webtaskContext.data.SG_FROM
         subject: 'New JOIN Message from ' + req.params.name + ' <' + req.params.email +'>',
         text: content
     }, function(err, json) {
