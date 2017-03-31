@@ -5,7 +5,7 @@ app.use(require('body-parser').json());
 
 app.post('/mailer/echo', function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  res.status(200).json({ name : req.webtaskContext.data.name});
+  res.status(200).json({ name : req.body.name});
 });
 
 // [POST] hire
