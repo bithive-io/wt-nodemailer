@@ -14,7 +14,7 @@ app.post('/mailer/hire', function (req, res) {
     //    (!req.webtaskContext.data.SG_FROM))
     //      res.status(500).send("error");
 
-    var content = "- ORGANIZATION:" + req.body.org + "\n" + "- MESSAGE: \n" + req.body.message;
+    var content = "- ORGANIZATION:" + req.body.org + "\n" + "- MESSAGE: " + "\n" + req.body.message;
 
     var Sendgrid = require('sendgrid')(req.webtaskContext.data.SG_KEY);
 
