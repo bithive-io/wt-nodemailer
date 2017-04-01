@@ -32,7 +32,7 @@ app.post('/mailer/hire', function (req, res) {
 app.post('/mailer/join', function (req, res) {
 
   var subject = 'New JOIN Message for Bithive';
-  var content = "- NAME:" + req.body.name + '\n' +
+  var content = "- NAME: " + req.body.name + '\n' +
                 "- EMAIL: " + req.body.email  + '\n' +
                 "- AVAILABILITY (hs): " + req.body.availability + '\n' +
                 "- LOCATION: " + req.body.location + '\n' +
