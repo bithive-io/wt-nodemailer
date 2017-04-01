@@ -3,9 +3,6 @@ var Webtask = require('webtask-tools');
 
 app.use(require('body-parser').json());
 
-app.post('/mailer/echo', function (req, res) {
-  res.status(200).send(req.webtaskContext.data);
-});
 
 // [POST] hire
 
@@ -23,9 +20,9 @@ app.post('/mailer/hire', function (req, res) {
     text: content
   }, function(err, json) {
     if(err)
-    res.status(500).send(err);
+      res.status(500).json({ success : false });
     else
-    res.status(200).send("ok");
+      res.status(200).json({ success : true });
   });
 });
 
@@ -54,9 +51,9 @@ app.post('/mailer/join', function (req, res) {
     text: content
   }, function(err, json) {
     if(err)
-    res.status(500).send(err);
+      res.status(500).json({ success : false });
     else
-    res.status(200).send("ok");;
+      res.status(200).json({ success : true });
   });
 })
 
