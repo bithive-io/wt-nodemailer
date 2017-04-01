@@ -7,10 +7,10 @@ app.use(require('body-parser').json());
 app.post('/mailer/hire', function (req, res) {
 
   var subject = 'New HIRE Message for Bithive';
-  var content = ' - NAME: ' + req.body.name +
-                ' - EMAIL: ' + req.body.email +
-                ' - ORGANIZATION: ' + req.body.org  +
-                ' - MESSAGE: ' + req.body.message;
+  var content = '- NAME: ' + req.body.name + '\n' +
+                '- EMAIL: ' + req.body.email + '\n' +
+                '- ORGANIZATION: ' + req.body.org  + '\n' +
+                '- MESSAGE: ' + req.body.message;
 
   var Sendgrid = require('sendgrid')(req.webtaskContext.secrets.SG_KEY);
 
@@ -32,15 +32,15 @@ app.post('/mailer/hire', function (req, res) {
 app.post('/mailer/join', function (req, res) {
 
   var subject = 'New JOIN Message for Bithive';
-  var content = " - NAME:" + req.body.name +
-                " - EMAIL: " + req.body.email  +
-                " - AVAILABILITY (hs): " + req.body.availability +
-                " - LOCATION: " + req.body.location +
-                " - SKILL: " + req.body.skill  +
-                " - WEBSITE: " + req.body.website +
-                " - LINKEDIN: " + req.body.linkedin +
-                " - GITHUB: " + req.body.github +
-                " - MESSAGE: " + req.body.message;
+  var content = "- NAME:" + req.body.name + '\n' +
+                "- EMAIL: " + req.body.email  + '\n' +
+                "- AVAILABILITY (hs): " + req.body.availability + '\n' +
+                "- LOCATION: " + req.body.location + '\n' +
+                "- SKILL: " + req.body.skill  + '\n' +
+                "- WEBSITE: " + req.body.website + '\n' +
+                "- LINKEDIN: " + req.body.linkedin + '\n' +
+                "- GITHUB: " + req.body.github + '\n' +
+                "- MESSAGE: " + req.body.message;
 
   var Sendgrid = require('sendgrid')(req.webtaskContext.secrets.SG_KEY);
 
