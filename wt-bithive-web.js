@@ -1,6 +1,8 @@
 var app = new(require('express'));
 var Webtask = require('webtask-tools');
 
+const SG_BR = '=0D';
+
 app.use(require('body-parser').json());
 
 
@@ -9,7 +11,7 @@ app.use(require('body-parser').json());
 app.post('/mailer/hire', function (req, res) {
 
   var subject = 'New HIRE Message from ' + req.body.name + ' <' + req.body.email +'>';
-  var content = 'ORGANIZATION: ' + req.body.org + '\n' + 'MESSAGE: \n' + req.body.message;
+  var content = 'ORGANIZATION: ' + req.body.org + SG_BR + 'MESSAGE: ' + SG_BR + req.body.message;
 
   var Sendgrid = require('sendgrid')(req.webtaskContext.secrets.SG_KEY);
 
@@ -32,15 +34,15 @@ app.post('/mailer/hire', function (req, res) {
 app.post('/mailer/join', function (req, res) {
 
   var subject = 'New JOIN Message from ' + req.body.name + ' <' + req.body.email +'>';
-  var content = "- NAME:" + req.body.name + "\n" +
-  "EMAIL: " + req.body.email + "\n" +
-  "AVAILABILITY (hs): " + req.body.availability + "\n" +
-  "LOCATION: " + req.body.location + "\n" +
-  "SKILL: " + req.body.skill + "\n" +
-  "WEBSITE: " + req.body.website + "\n" +
-  "LINKEDIN: " + req.body.linkedin + "\n" +
-  "GITHUB: " + req.body.github + "\n" +
-  "MESSAGE: \n" + req.body.message;
+  var content = "NAME:" + req.body.name + SG_BR +
+  "EMAIL: " + req.body.email + SG_BR +
+  "AVAILABILITY (hs): " + req.body.availability + SG_BR +
+  "LOCATION: " + req.body.location + SG_BR +
+  "SKILL: " + req.body.skill + SG_BR +
+  "WEBSITE: " + req.body.website + SG_BR +
+  "LINKEDIN: " + req.body.linkedin + SG_BR +
+  "GITHUB: " + req.body.github + SG_BR +
+  "MESSAGE: " + SG_BR + req.body.message;
 
   var Sendgrid = require('sendgrid')(req.webtaskContext.secrets.SG_KEY);
 
